@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const emailInput = document.getElementById("emailInput");
+      const submitButton = document.getElementById("submitButton");
+      const errorMessage = document.getElementById('errorMessage');
+
+      emailInput.addEventListener("input", function () {
+        if (isValidEmail(emailInput.value)) {
+          submitButton.disabled = false;
+          errorMessage.textContent = '';
+          emailInput.classList.remove('invalid');
+        } else {
+          submitButton.disabled = true;
+          errorMessage.textContent = 'Valid Email Required*';
+          emailInput.classList.add('invalid');
+        }
+      });
+
+      function isValidEmail(email) {
+        // Very basic email validation
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+    });
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>Stay updated!</h1>
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul>
+        <li><img src="./assets/images/icon-list.svg" class="image-list" /> Product discovery and building what matters
+        </li>
+        <li> <img src="./assets/images/icon-list.svg" class="image-list" />Measuring to ensure updates are a success
+        </li>
+        <li> <img src="./assets/images/icon-list.svg" class="image-list" />And much more!</li>
+      </ul>
+      <div class="emailcontainer">
+        <p class="email">Email address</p>
+        <p class="validation-text" id="errorMessage"></p>
+      </div>
+      <form id="emailForm">
+        <input id="emailInput" type="email" placeholder="email@company.com" />
+        <button id="submitButton" disabled type="submit">Subscribe to monthly newsletter</button>
+      </form>
+    </div>
+    <div class="right">
+      <img src="assets/images/illustration-sign-up-desktop.svg" class="desktop" />
+      <img src="assets/images/illustration-sign-up-mobile.svg" class="mobile" />
+    </div>
+  </div>
+
+</body>
+
+</html>

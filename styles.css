@@ -1,0 +1,162 @@
+body {
+  background-color: hsl(234, 29%, 20%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("./assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url("./assets/fonts/Roboto-Bold.ttf");
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+  padding: 10px;
+  font-family: Roboto;
+}
+.left {
+  padding: 5%;
+}
+.desktop {
+  display: block;
+  width: 100%;
+}
+.mobile {
+  display: none;
+}
+h1 {
+  font-family: RobotoBold;
+}
+.image-list {
+  width: 4%;
+  padding-right: 2%;
+}
+ul {
+  padding-left: 0%;
+}
+li {
+  display: flex;
+  padding-top: 5%;
+}
+.email {
+  font-family: RobotoBold;
+}
+input {
+  width: 80%;
+  padding: 4% 2%;
+}
+.emailcontainer {
+  display: flex;
+  padding-top: 5%;
+  justify-content: space-between;
+  width: 85%;
+  align-items: baseline;
+}
+.validation-text {
+  color: hsl(4, 100%, 67%);
+  font-size: 12px;
+}
+
+button:disabled {
+  width: 80%;
+  padding: 4% 2%;
+  background: hsl(234, 29%, 20%);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-family: RobotoBold;
+  cursor: pointer;
+  margin-top: 5%;
+  z-index: 1;
+  cursor: not-allowed;
+}
+
+button {
+  width: 80%;
+  padding: 4% 2%;
+  background: linear-gradient(
+    90deg,
+    rgba(253, 29, 29, 1) 0%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-family: RobotoBold;
+  cursor: pointer;
+  margin-top: 5%;
+  letter-spacing: 1.2px;
+}
+input {
+  outline: none;
+  border: 1.3px solid black;
+  border-radius: 4px;
+  width: 75%;
+}
+
+input[type="email"].invalid {
+  border-color: red; /* Border color for invalid input */
+  background-color: #ffe0de;
+  outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+  }
+  .container {
+    width: 100%;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: Roboto;
+    padding: 0px;
+    justify-content: start;
+  }
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+    width: 100%;
+  }
+  h1 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+    margin: 0px;
+  }
+  li {
+    font-size: 12px;
+    margin: 0px;
+  }
+  .emailcontainer {
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  input {
+    width: 95%;
+  }
+  button {
+    width: 100%;
+  }
+  button:disabled {
+    width: 100%;
+  }
+}
