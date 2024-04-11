@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" type="text/css" href="styles.css" />
-
   <title>Frontend Mentor | Newsletter sign-up form with success message</title>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const emailInput = document.getElementById("emailInput");
       const submitButton = document.getElementById("submitButton");
       const errorMessage = document.getElementById('errorMessage');
+      const emailForm = document.getElementById('emailForm');
 
       emailInput.addEventListener("input", function () {
         if (isValidEmail(emailInput.value)) {
@@ -28,13 +26,22 @@
         }
       });
 
+      emailForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        if (isValidEmail(emailInput.value)) {
+          window.location.href = 'thankyou.html'; // Navigate to the thank you page
+        } else {
+          errorMessage.textContent = 'Valid Email Required*';
+          emailInput.classList.add('invalid');
+        }
+      });
+
       function isValidEmail(email) {
         // Very basic email validation
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       }
     });
   </script>
-
 </head>
 
 <body>
@@ -45,9 +52,9 @@
       <ul>
         <li><img src="./assets/images/icon-list.svg" class="image-list" /> Product discovery and building what matters
         </li>
-        <li> <img src="./assets/images/icon-list.svg" class="image-list" />Measuring to ensure updates are a success
+        <li><img src="./assets/images/icon-list.svg" class="image-list" /> Measuring to ensure updates are a success
         </li>
-        <li> <img src="./assets/images/icon-list.svg" class="image-list" />And much more!</li>
+        <li><img src="./assets/images/icon-list.svg" class="image-list" /> And much more!</li>
       </ul>
       <div class="emailcontainer">
         <p class="email">Email address</p>
@@ -63,7 +70,6 @@
       <img src="assets/images/illustration-sign-up-mobile.svg" class="mobile" />
     </div>
   </div>
-
 </body>
 
 </html>
